@@ -33,11 +33,20 @@
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             drawBall();
+
+            if(x + dx > canvas.width - ballRadius || x + dx < 0) {
+                dx = -dx;
+            }
+
+            if(y + dy > canvas.height - ballRadius || y + dy < 0) {
+                dy = -dy;
+            }
+
             x += dx;
             y += dy;
         }
         //10sごとに更新
-        setInterval(draw, 10);        
+        setInterval(draw, 10);
     </script>
 </body>
 </html>
